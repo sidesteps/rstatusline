@@ -94,4 +94,4 @@ function! MyStatusline()
     "set statusline=%F%m\ %y%=%c,%l/%L\ %P
     return '%F%m %y <'.buflist_str.' >'.'%=%c,%l/%L %P'
 endfunction
-au BufEnter,BufNew,BufDelete,BufWinEnter * let &l:statusline=MyStatusline()
+au BufEnter,BufNew,BufDelete,BufWinEnter * let &statusline=MyStatusline()
