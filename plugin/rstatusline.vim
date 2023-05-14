@@ -19,9 +19,10 @@ if !exists("g:statusline_size")
 endif
 
 set laststatus=2
+hi StatusLine ctermbg=none ctermfg=none cterm=none gui=none
 "hi StatusLine term=bold,reverse cterm=bold,reverse ctermfg=238 ctermbg=253
 "hi StatusLineNC term=reverse cterm=reverse ctermfg=238 ctermbg=253
-"hi Hl_status term=bold,reverse cterm=bold,reverse ctermfg=238 ctermbg=199
+hi Hl_status term=bold,reverse cterm=bold,reverse ctermfg=238 ctermbg=199
 
 if !exists("g:cur_anchor")
     let g:cur_anchor = 0
@@ -92,6 +93,7 @@ function! MyStatusline()
         endif
         let i += 1
     endwhile
-    return '%< %m%r <'.buflist_str.' >'.'%= %l,%c%V/%L %P Total:'.len(buflist).' '
+    "set statusline=%F%m\ %y%=%c,%l/%L\ %P
+    return '%F%m %y <'.buflist_str.'>'.'%=%c,%l/%L %P'
 endfunction
 au BufEnter,BufNew,BufDelete,BufWinEnter * let &l:statusline=MyStatusline()
